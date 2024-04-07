@@ -80,7 +80,7 @@ See the `charmap_w.inc` file itself and the examples below for details.
 
 `CHARMAP_W_DB_COMPMODE` is used to configure the db-compatible mode.
 
-All `newcharmap_w n, {name}` defines `newcharmap {name}` and `newcharmap CHARMAP_W_{name}_PLANE_{0..n}` and sets the charmap to `charmap {name}`.
+All `newcharmap_w n, {name}` defines `newcharmap {name}` and `newcharmap CHARMAP_W_{name}_PLANE_{0..n+1}` and sets the charmap to `charmap {name}`.
 
 The `PLANE` charmap is not affected by `CHARMAP_W_DB_COMPMODE` and is used in `*_w` related macros.
 
@@ -92,11 +92,11 @@ The original `charmap {name}`, on the other hand, depending on the setting of `C
 - With a setting of `0`, all characters are not set to `charmap {name}`.
 - With a setting of `2`, the highest bytes of each character are set to the `charmap {name}`.
 
-| value       | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n}` |
-|-------------|---------------------------------|---------------------------------|
-| 0           | none                            | 1-byte chars and wide chars     |
-| 1 (default) | 1-byte chars                    | 1-byte chars and wide chars     |
-| 2           | 1-byte chars and wide chars (*) | 1-byte chars and wide chars     |
+| value       | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n+1}` |
+|-------------|---------------------------------|-----------------------------------|
+| 0           | none                            | 1-byte chars and wide chars       |
+| 1 (default) | 1-byte chars                    | 1-byte chars and wide chars       |
+| 2           | 1-byte chars and wide chars (*) | 1-byte chars and wide chars       |
 
 > (*): Only highest byte is set. `charmap_w "T", $12, $34` will only set `charmap "T", $12` to `charmap {name}`.
 

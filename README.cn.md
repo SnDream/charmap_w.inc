@@ -77,7 +77,7 @@
 
 `CHARMAP_W_DB_COMPMODE` 用于配置 db 兼容模式。
 
-所有的 `newcharmap_w n, {name}` 均会定义 `newcharmap {name}` 和 `newcharmap CHARMAP_W_{name}_PLANE_{0..n}` ，并设置当前的charmap到 `charmap {name}` 。
+所有的 `newcharmap_w n, {name}` 均会定义 `newcharmap {name}` 和 `newcharmap CHARMAP_W_{name}_PLANE_{0..n+1}` ，并设置当前的charmap到 `charmap {name}` 。
 
 `PLANE` charmap 不受 `CHARMAP_W_DB_COMPMODE` 影响，并被 `*_w` 相关的宏使用。
 
@@ -89,11 +89,11 @@
 - 设置为 `0` 时，所有的字符都不会设置到 `charmap {name}` 。
 - 设置为 `2` 时，每个字符的最高字节都会设置到 `charmap {name}` 。
 
-| 值          | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n}` |
-|-------------|---------------------------------|---------------------------------|
-| 0           | 无                              | 1字节长度字符和宽字节字符       |
-| 1 (默认值)  | 1字节长度字符                   | 1字节长度字符和宽字节字符       |
-| 2           | 1字节长度字符和宽字节字符 (*)   | 1字节长度字符和宽字节字符       |
+| 值          | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n+1}` |
+|-------------|---------------------------------|-----------------------------------|
+| 0           | 无                              | 1字节长度字符和宽字节字符         |
+| 1 (默认值)  | 1字节长度字符                   | 1字节长度字符和宽字节字符         |
+| 2           | 1字节长度字符和宽字节字符 (*)   | 1字节长度字符和宽字节字符         |
 
 > (*): 只会设置最高字节。 `charmap_w "T", $12, $34` 只会设置 `charmap "T", $12` 到 `charmap {name}`.
 
