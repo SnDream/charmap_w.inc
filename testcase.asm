@@ -1,6 +1,9 @@
 ; TODO: Cleaning up test cases
 
-INCLUDE "charmap.inc"
+; Compile:
+; rgbasm testcase.asm -o t.o && rgblink -o t.bin t.o && hexdump -C t.bin
+
+INCLUDE "charmap_w.inc"
 
 SECTION "test0", ROM0
 	newcharmap_w 2
