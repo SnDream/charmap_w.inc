@@ -87,7 +87,7 @@ The original `charmap {name}`, on the other hand, depending on the setting of `C
     - Using `db` instead of `db_w` can index 1-byte lengths of characters only.
     - If wide char misuses `db`, `rgbds` will report `Unmapped-char` warning.
 - With a setting of `0`, all characters are not set to charmap.
-- With a setting of `2`, the highest byte of all characters is set to charmap.
+- With a setting of `2`, the highest bytes of each wide character are set to the charmap.
 
 | value       | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n}` |
 |-------------|---------------------------------|---------------------------------|
