@@ -103,8 +103,8 @@ MACRO newcharmap_w
 		for _CHARMAP_W_I, _CHARMAP_W_J, \1 + 1
 			newcharmap CHARMAP_W_{CHARMAP_W_NAME}_PLANE_{d:_CHARMAP_W_I}, CHARMAP_W_\3_PLANE_{d:CHARMAP_W_\3_MAX_LENGTH}
 		endr
-		popc
 	endc
+	popc
 ENDM
 
 ; setcharmap_w name
