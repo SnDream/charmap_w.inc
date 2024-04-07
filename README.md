@@ -1,4 +1,7 @@
 # `charmap_w.inc`
+
+[中文说明](README.cn.md)
+
 RGBDS include file for wide charmap support
 
 Since `rgbds` native `charmap` only supports 8-bit values now(`v0.7.0`), this inc file attempts to support wide-byte charmap without modifying rgbds.
@@ -79,15 +82,15 @@ See the `charmap_w.inc` file itself and the examples below for details.
 
 All `newcharmap_w n, {name}` defines `newcharmap {name}` and `newcharmap CHARMAP_W_{name}_PLANE_{0..n}` and sets the charmap to `charmap {name}`.
 
-The `PLANE` charmap is not affected by `COMPMODE` and is used in `_w` related functions.
+The `PLANE` charmap is not affected by `CHARMAP_W_DB_COMPMODE` and is used in `*_w` related macros.
 
-The original `charmap {name}`, on the other hand, depending on the setting of `COMPMODE`, the contents of that charmap will change as follows:
+The original `charmap {name}`, on the other hand, depending on the setting of `CHARMAP_W_DB_COMPMODE`, the contents of that charmap will change as follows:
 
-- The default value is `1`, and in this configuration only 1-byte lengths of characters using charmap_w will actually be set to charmap, and wide char will only be set to the corresponding `PLANE` charmap. 
+- The default value is `1`, and in this configuration only 1-byte lengths of characters using charmap_w will actually be set to `charmap {name}`, and wide char will only be set to the corresponding `PLANE` charmap. 
     - Using `db` instead of `db_w` can index 1-byte lengths of characters only.
     - If wide char misuses `db`, `rgbds` will report `Unmapped-char` warning.
-- With a setting of `0`, all characters are not set to charmap.
-- With a setting of `2`, the highest bytes of each wide character are set to the charmap.
+- With a setting of `0`, all characters are not set to `charmap {name}`.
+- With a setting of `2`, the highest bytes of each character are set to the `charmap {name}`.
 
 | value       | `charmap {name}`                | `CHARMAP_W_{name}_PLANE_{0..n}` |
 |-------------|---------------------------------|---------------------------------|

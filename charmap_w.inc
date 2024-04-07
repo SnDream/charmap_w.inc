@@ -192,7 +192,7 @@ ENDM
 ; and "Text" will be forced to treat as an 8-bit value only.
 ;
 ; For cases where only the 8-bit values in charmap are used,
-; you can just use the native db.
+; you can just use the native db. (See CHARMAP_W_DB_COMPMODE)
 MACRO db_w
 	rept _NARG
 		pushc
